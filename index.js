@@ -20,6 +20,7 @@ for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
+//reading the messages in discord
 client.on('message', message => {
     if (!message.content.startsWith(client.config.prefix) || message.author.bot)
         return;
