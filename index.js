@@ -14,17 +14,17 @@ client.once('ready', () => {
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-
-    // set a new item in the Collection
-    // with the key as the command name and the value as the exported module
     client.commands.set(command.name, command);
 }
 client.on('message', message => {
-    if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-    const args = message.content.slice(config.prefix.length).split(/ +/);
+    if (!message.content.startsWith(client.config.prefix) || message.author.bot)
+        return;
+    const args = message.content.slice(client.config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    if (!client.commands.has(command)) return;
+    console.error(command);
+    if (!client.commands.has(command))
+        return;
 
     try {
         client.commands.get(command).execute(message, args);
@@ -34,8 +34,4 @@ client.on('message', message => {
         message.reply('there was an error trying to execute that command!');
     }
 });
-
-
-
-
 client.login(config.token);
