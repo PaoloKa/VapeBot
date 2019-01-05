@@ -2,14 +2,18 @@ const Discord = require('discord.js');
 const fs = require("fs");
 const config = require("./config.json");
 const client = new Discord.Client();
-client.commands = new Discord.Collection();
-
-client.config = config;
-
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const TeemoJS = require('teemojs');
+let api = TeemoJS(config.league_token);
+
+
+client.commands = new Discord.Collection();
+client.config = config;
+client.lolApi = api;
 
 client.once('ready', () => {
     console.log('Ready!');
+
 });
 
 for (const file of commandFiles) {
@@ -17,7 +21,6 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 client.on('message', message => {
-
     if (!message.content.startsWith(client.config.prefix) || message.author.bot)
         return;
     const args = message.content.slice(client.config.prefix.length).split(/ +/);
