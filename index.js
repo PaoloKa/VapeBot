@@ -4,12 +4,14 @@ const config = require("./config.json");
 const client = new Discord.Client();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 const TeemoJS = require('teemojs');
+const request = require('request');
 let api = TeemoJS(config.league_token);
 
 
 client.commands = new Discord.Collection();
 client.config = config;
 client.lolApi = api;
+client.request = request;
 
 client.once('ready', () => {
     console.log('Ready!');
