@@ -1,8 +1,19 @@
 
 module.exports = {
-    name: 'counter',
-    description: 'counts a single word in the server.',
+    name: 'emojiconvert',
+    description: 'converts your sentence into an emoji sentence',
     execute(message, args) {
-        message.channel.send(message.author.toString() + " You Flipped: " + (hd[Math.floor(Math.random() * hd.length)]));
+
+        var words = args.toString().toLowerCase();
+        var emojiString = "";
+        var letters = /^[A-Za-z]+$/;
+        for(var i = 0; i < words.length; i++){
+            var char = words.charAt(i);
+            if(char.match(letters))
+                emojiString += ":regional_indicator_"+char+":";
+            else
+                emojiString += char;
+        }
+        message.channel.send(emojiString);
     },
 }

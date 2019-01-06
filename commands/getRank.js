@@ -9,7 +9,6 @@ module.exports = {
                 message.client.lolApi.get('euw1', 'league.getAllLeaguePositionsForSummoner', data.id).then(data => {
                     console.log(data);
                     for(var i = 0; i < data.length; i++){
-                        console.log(data[i].tier);
                         var rank = data[i].queueType+" "+data[i].tier + " "+data[i].rank;
                         if(rank.includes("BRONZE"))
                                 message.channel.send(rank + " :joy: :wheelchair:");
