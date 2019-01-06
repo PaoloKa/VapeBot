@@ -4,6 +4,7 @@ module.exports = {
     description: 'converts your sentence into an emoji sentence',
     execute(message, args) {
 
+        message.delete();
         var words = args.toString().toLowerCase();
         var emojiString = "";
         var letters = /^[A-Za-z]+$/;
