@@ -1,4 +1,5 @@
 var championFinder = require("../utils/championFinder.js");
+var championData = require("../champions.json");
 
 module.exports = {
     name: 'gameinfo',
@@ -17,10 +18,16 @@ module.exports = {
                        if(data.participants[i].summonerId == data_s.id )
                             championId = data.participants[i].championId;
                    }
+                   // console.log(championData.data[championFinder.getNameById(championId)]);
                     message.channel.send(""+data_s.name+"("+data_s.summonerLevel+") is playing with "+championFinder.getNameById(championId)+ " in "+gameMode);
 
-                })
+                }).catch( function(error){
+                    message.channel.send("This user is currently not ingame.");
+                });
+        }).catch( function(error){
+            message.channel.send("No user with the name "+args.join(" ")+" found.");
         });
+
 
 
     },

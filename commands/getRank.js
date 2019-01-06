@@ -17,6 +17,8 @@ module.exports = {
                                 message.channel.send(rank);
                     }
                 })
+        }).catch( function(error){
+            message.channel.send("No user with the name "+args.join(" ")+" found.");
         });
 
 
