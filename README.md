@@ -12,3 +12,6 @@ Create a config.json in the main folder and make it look like this
 }
 ```
 after that use . Use ```npm install``` to install al the modules, than use ```node index.js``` to launch the bot.
+## League Commands
+- getrank 'summoner name'   : gives you all the ranks of the current/previous season 
+- gameinfo 'summoner name'  : gives you information about the player ingame (mode, champion, ...)
