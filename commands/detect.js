@@ -32,7 +32,7 @@ module.exports = {
             description: "*[Face Detection API from Face++](https://www.faceplusplus.com/)*",
             fields: [{
                 name: "Emotions",
-                value: `Neutraal: ${detectInfo.emotion.neutral}%\n Boos: ${detectInfo.emotion.anger}%\n Blij: ${detectInfo.emotion.happiness}%\n Bang: ${detectInfo.emotion.fear}%\n Droevig: ${detectInfo.emotion.sadness}%\n Gedegouteerd: ${detectInfo.emotion.disgust}%\n Verrasd: ${detectInfo.emotion.surprise}%`
+                value: `Neutraal: ${detectInfo.emotion.neutral}%\n Boos: ${detectInfo.emotion.anger}%\n Blij: ${detectInfo.emotion.happiness}%\n Bang: ${detectInfo.emotion.fear}%\n Droevig: ${detectInfo.emotion.sadness}%\n Gedegouteerd: ${detectInfo.emotion.disgust}%\n Verrast: ${detectInfo.emotion.surprise}%`
               },
               {
                 name: "Beauty Score (Hoe hoger hoe beter)",
