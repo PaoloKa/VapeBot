@@ -13,7 +13,6 @@ module.exports = {
                 message.client.lolApi.get('euw1', 'spectator.getCurrentGameInfoBySummoner', data_s.id).then(data => {
                    var gameMode = data.gameMode;
                    var championId;
-                   //console.log(data);
                    for(var i =0; i < data.participants.length; i++){
                        if(data.participants[i].summonerId == data_s.id )
                             championId = data.participants[i].championId;

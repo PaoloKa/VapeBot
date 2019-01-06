@@ -12,7 +12,7 @@ module.exports = {
             if(char.match(letters))
                 emojiString += ":regional_indicator_"+char+":";
             else
-                emojiString += char;
+                emojiString += "\t";
         }
         message.channel.send(emojiString);
     },
