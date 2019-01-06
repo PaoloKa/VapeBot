@@ -28,7 +28,8 @@ module.exports = {
             name: message.client.user.username,
             icon_url: message.client.user.avatarURL
             },
-            title: "**WAHLE KOP HAHAHAHAHAHAHAHHA TSJALIE HEUFD**",
+            title: "**WAHLE KOP HAHAHAHAHAHAHAHHA**",
+            description: "*[Face Detection API from Face++](https://www.faceplusplus.com/)*",
             fields: [{
                 name: "Emotions",
                 value: `Neutraal: ${detectInfo.emotion.neutral}%\n Boos: ${detectInfo.emotion.anger}%\n Blij: ${detectInfo.emotion.happiness}%\n Bang: ${detectInfo.emotion.fear}%\n Droevig: ${detectInfo.emotion.sadness}%\n Gedegouteerd: ${detectInfo.emotion.disgust}%\n Verrasd: ${detectInfo.emotion.surprise}%`
