@@ -35,7 +35,7 @@ module.exports = {
               },
               {
                 name: "Beauty Score (Hoe hoger hoe beter)",
-                value: `**Als je een man bent**: ${detectInfo.beauty.male_score}\n **Als je een vrouw bent**: ${detectInfo.beauty.female_score}`
+                value: `**Hoe mooi mannen je vinden (op 100)**: ${detectInfo.beauty.male_score}\n **Hoe mooi vrouwen je vinden (op 100)**: ${detectInfo.beauty.female_score}`
               },
               {
                 name: "Informatie",
