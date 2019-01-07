@@ -21,35 +21,40 @@ module.exports = {
         console.log(`ERROR: ${err}`);
         console.log(`BODY: ${body}`);
         var jsonObj = JSON.parse(body);
-        var detectInfo = jsonObj.faces[0].attributes;
-        message.channel.send({embed: {
-          color: 3447003,
-          author: {
-            name: message.client.user.username,
-            icon_url: message.client.user.avatarURL
-            },
-            title: "**WAHLE KOP HAHAHAHAHAHAHAHHA**",
-            description: "*[Face Detection API from Face++](https://www.faceplusplus.com/)*",
-            fields: [{
-                name: "Emotions",
-                value: `Neutraal: ${detectInfo.emotion.neutral}%\n Boos: ${detectInfo.emotion.anger}%\n Blij: ${detectInfo.emotion.happiness}%\n Bang: ${detectInfo.emotion.fear}%\n Droevig: ${detectInfo.emotion.sadness}%\n Gedegouteerd: ${detectInfo.emotion.disgust}%\n Verrast: ${detectInfo.emotion.surprise}%`
+        try {
+          var detectInfo = jsonObj.faces[0].attributes;
+          message.channel.send({embed: {
+            color: 3447003,
+            author: {
+              name: message.client.user.username,
+              icon_url: message.client.user.avatarURL
               },
-              {
-                name: "Beauty Score (Hoe hoger hoe beter)",
-                value: `**Hoe mooi mannen je vinden (op 100)**: ${detectInfo.beauty.male_score}\n **Hoe mooi vrouwen je vinden (op 100)**: ${detectInfo.beauty.female_score}`
-              },
-              {
-                name: "Informatie",
-                value: `Wiejow gij bent een **${detectInfo.gender.value}**. \n Tsjalie oude rat, gij bent **${detectInfo.age.value}** jaar oud.\n Inshallah broer, uw ras is: **${detectInfo.ethnicity.value}**.`
-              },
-            ],
-            timestamp: new Date(),
-            footer: {
-              icon_url: message.client.user.avatarURL,
-              text: "© Johnny"
+              title: "**WAHLE KOP HAHAHAHAHAHAHAHHA**",
+              description: "*[Face Detection API from Face++](https://www.faceplusplus.com/)*",
+              fields: [{
+                  name: "Emotions",
+                  value: `Neutraal: ${detectInfo.emotion.neutral}%\n Boos: ${detectInfo.emotion.anger}%\n Blij: ${detectInfo.emotion.happiness}%\n Bang: ${detectInfo.emotion.fear}%\n Droevig: ${detectInfo.emotion.sadness}%\n Gedegouteerd: ${detectInfo.emotion.disgust}%\n Verrast: ${detectInfo.emotion.surprise}%`
+                },
+                {
+                  name: "Beauty Score (Hoe hoger hoe beter)",
+                  value: `**Hoe mooi mannen je vinden (op 100)**: ${detectInfo.beauty.male_score}\n **Hoe mooi vrouwen je vinden (op 100)**: ${detectInfo.beauty.female_score}`
+                },
+                {
+                  name: "Informatie",
+                  value: `Wiejow gij bent een **${detectInfo.gender.value}**. \n Tsjalie oude rat, gij bent **${detectInfo.age.value}** jaar oud.\n Inshallah broer, uw ras is: **${detectInfo.ethnicity.value}**.`
+                },
+              ],
+              timestamp: new Date(),
+              footer: {
+                icon_url: message.client.user.avatarURL,
+                text: "© Johnny"
+              }
             }
-          }
-        });
+          });
+        }
+        catch {
+          message.channel.send(`ERROR IDIOOT: **${jsonObj.error_message}**`);
+        }
       })
     },
 }
