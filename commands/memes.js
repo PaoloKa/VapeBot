@@ -13,8 +13,6 @@ module.exports = {
         get.concat('https://api.imgflip.com/get_memes', function (err, res, data) {
             if (err)
                 throw err;
-
-
             console.log(res.statusCode) // 200
             var information = data.toString();
             var meme_data = JSON.parse(information).data.memes;
