@@ -12,19 +12,24 @@ client.config = config;
 client.lolApi = api;
 
 client.once('ready', () => {
-    console.log('Ready!');
+    console.log('Bot started');
 
 });
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
+
 }
 
 //reading the messages in discord
 client.on('message', message => {
-    if (!message.content.startsWith(client.config.prefix) || message.author.bot)
+
+    if (!message.content.startsWith(client.config.prefix) && !message.author.bot) {
+           client.commands.get('zaag').execute(message,undefined);
         return;
+    }
+
     const args = message.content.slice(client.config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     console.error(command);
