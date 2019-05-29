@@ -1,5 +1,5 @@
 var championFinder = require("../utils/championFinder.js");
-var championData = require("../champions.json");
+var championData = require("../../data/champions.json");
 
 module.exports = {
     name: 'gameinfo',

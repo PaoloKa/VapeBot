@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fs = require("fs");
 const config = require("./config.json");
 const client = new Discord.Client();
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./bot/commands/').filter(file => file.endsWith('.js'));
 const TeemoJS = require('teemojs');
 let api = TeemoJS(config.league_token);
 
@@ -12,16 +12,21 @@ client.config = config;
 client.lolApi = api;
 
 client.once('ready', () => {
+    client.user.setPresence({
+        game: { 
+            name: 'HLN comments',
+            type: 'WATCHING'
+        },
+        status: 'idle'
+    })
     console.log('Bot started');
 
 });
-
+//reading all commands and putting them int the bot
 for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
+     const command = require(`./bot/commands/${file}`);
     client.commands.set(command.name, command);
-
 }
-
 //reading the messages in discord
 client.on('message', message => {
 

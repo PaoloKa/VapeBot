@@ -10,7 +10,7 @@ module.exports = {
             .setColor("#15f153")
             .setThumbnail(bicon)
             .addField("Bot Name", message.client.user.username)
-            .addField("Created On",message.client.user.createdAt);
+            .addField("Info","use !commands for a list of all available commands.");
 
         message.channel.send(botembed);
     },
