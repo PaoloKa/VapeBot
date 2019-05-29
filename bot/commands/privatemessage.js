@@ -13,7 +13,7 @@ module.exports = {
             return;
         }
         if (member) {
-            user.send("Hey ik ben een vriendelijke bot, ALLE BRUINE BUITEN, dit is een test sorry :)")
+            user.send("Hey ik ben een vriendelijke bot, ALLE BRUINE BUITEN.")
 
         } else {
             // The mentioned user isn't in this guild

@@ -31,7 +31,7 @@ for (const file of commandFiles) {
 client.on('message', message => {
 
     if (!message.content.startsWith(client.config.prefix) && !message.author.bot) {
-           client.commands.get('zaag').execute(message,undefined);
+           client.commands.get('complain').execute(message,undefined);
         return;
     }
 

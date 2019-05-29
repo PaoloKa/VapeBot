@@ -10,7 +10,9 @@ var possible_answers = [
     "weet jij waar Joran is?",
     "Mijn rug doet pijn",
     "Hey :)",
-    "Wdj ?"
+    "Wdj ?",
+    "ZWIJG!",
+    
 
 ];
 
@@ -18,13 +20,13 @@ module.exports = {
     name: 'complain',
     description: 'complains for you',
     execute(message, args) {
-        if (message.content.includes("<@178956698545815563>")) {
-            if (Math.floor(Math.random() * 5) === 2 && message.channel.id == config.general_id) {
+        if (Math.floor(Math.random() * 6) === 2 && message.content.includes("noopi")) { 
+            if ( message.channel.id == config.general_id) {
                 message.reply("AFBLIJVEN JORAN IS VAN MIJ");
                 return;
             }
         }
-        if (Math.floor(Math.random() * 6) === 2 && message.channel.id == config.general_id) {
+        if (Math.floor(Math.random() * 8) === 2 && message.channel.id == config.general_id) {
             message.reply([possible_answers[Math.floor(Math.random() * (1 + possible_answers.length - 0))]]);
             return;
         }
