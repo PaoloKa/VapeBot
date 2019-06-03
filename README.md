@@ -26,13 +26,15 @@ List of commands:
 * responses -> Lists all the current responses in the server. The bot will react whenever he sees the occurence of the word you entered.
 ## Setup
 Second create a config.json in the main folder and make it look like this
+When complain is set true, the bot will say random words if you don't give him attention.
 ```json
 {
   "token": "discord_token",   
   "general_id": "discord_id_general_channel",
   "prefix": "prefix_you_want_to_use",
   "league_token": "league_of_legends_api_key",
-  "dog_API_url": "https://dog.ceo/api/"
+  "dog_API_url": "https://dog.ceo/api/",
+   "complain" : true 
 }
 ```
 
