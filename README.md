@@ -2,7 +2,7 @@
 Discord bot made with discord.js lib, makes usage of the following API's
 * https://dog.ceo/api/ -> for random dog pictures
 * League of legends API -> for receiving league of legends information
-*https://api.imgflip.com/ -> for random meme pictures
+* https://api.imgflip.com/ -> for random meme pictures
 ## Info
 This is a personal bot, which is used in my private discord channel. List of commands:
 kick -> kicks a person
@@ -22,7 +22,7 @@ getrank -> finds the rank of a person for you.
 askrobin -> kan je vragen stellen aan mij :)
 coinflip -> flips a coin for you.
 addresponse -> Create a custom response.
-responses -> Lists all the current responses in the server.
+responses -> Lists all the current responses in the server. The bot will react whenever he sees the occurence of the word you entered.
 ## Setup
 Second create a config.json in the main folder and make it look like this
 ```json
