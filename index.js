@@ -1,15 +1,18 @@
 const Discord = require('discord.js');
 const fs = require("fs");
+const path = require('path');
 const config = require("./config.json");
 const client = new Discord.Client();
-const commandFiles = fs.readdirSync('./bot/commands/').filter(file => file.endsWith('.js'));
 const TeemoJS = require('teemojs');
-let api = TeemoJS(config.league_token);
+const sqlite3 = require('sqlite3').verbose();
+const wordReacter = require('./bot/wordReacter.js')
 
-
+/*
+set discord clien variables
+ */
 client.commands = new Discord.Collection();
 client.config = config;
-client.lolApi = api;
+client.lolApi = TeemoJS(config.league_token);	
 
 client.once('ready', () => {
     client.user.setPresence({
@@ -22,22 +25,29 @@ client.once('ready', () => {
     console.log('Bot started');
 
 });
+
+const commandFiles = fs.readdirSync('./bot/commands/');
+//const commandFiles = fs.readdirSync('./bot/commands/').filter(file => file.endsWith('.js'));
 //reading all commands and putting them int the bot
-for (const file of commandFiles) {
-     const command = require(`./bot/commands/${file}`);
-    client.commands.set(command.name, command);
+for (const folder of commandFiles) {
+    console.log(folder);
+     const commandFolder = fs.readdirSync(`./bot/commands/${folder}/`)
+     for (const file of commandFolder) {
+        const command = require(`./bot/commands/${folder}/${file}`)
+        client.commands.set(command.name, command);
+     }
 }
 //reading the messages in discord
 client.on('message', message => {
 
     if (!message.content.startsWith(client.config.prefix) && !message.author.bot) {
+           wordReacter.execute(message);
            client.commands.get('complain').execute(message,undefined);
         return;
     }
 
     const args = message.content.slice(client.config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    console.error(command);
     if (!client.commands.has(command))
         return;
 

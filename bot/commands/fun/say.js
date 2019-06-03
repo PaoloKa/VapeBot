@@ -9,6 +9,6 @@ module.exports = {
         }
         message.delete();
         const words = args.join(" ")
-        message.channel.send("/tts "+words);
+        message.channel.send(words);
     },
 }

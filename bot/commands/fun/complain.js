@@ -1,4 +1,4 @@
-const config = require("./../../config.json");
+const config = require("./../../../config.json");
 
 var possible_answers = [
     "wat is er, ben ik niet goed genoeg ofso?",
