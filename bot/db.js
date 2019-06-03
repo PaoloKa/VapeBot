@@ -5,7 +5,7 @@ let connection = new sqlite3.Database('assets/db/server.db',(err) => {
       return console.error(err.message);
     }
     // connection.run('CREATE TABLE responses(word text, response text)');
-    // connection.run('DELETE from  responses WHERE "1=1"');
+    //  connection.run('DELETE from  responses WHERE "1=1"');
     console.log('Connected to the SQlite database.');
 });
 

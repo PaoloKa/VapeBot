@@ -42,7 +42,8 @@ client.on('message', message => {
 
     if (!message.content.startsWith(client.config.prefix) && !message.author.bot) {
            wordReacter.execute(message);
-           client.commands.get('complain').execute(message,undefined);
+           if(config.complain == true)
+                client.commands.get('complain').execute(message,undefined);
         return;
     }
 

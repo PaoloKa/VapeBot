@@ -12,6 +12,10 @@ module.exports = {
             }
             var response = "";
             for(var i = 1; i < args.length; i++){
+                if(args[i] == "@everyone"){
+                    message.channel.send("Just no.");
+                    return;
+                }
                 console.log(args[i]);
                 response = response.concat(args[i])+" ";
             }
