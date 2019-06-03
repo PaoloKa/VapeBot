@@ -28,9 +28,11 @@ List of commands:
 Second create a config.json in the main folder and make it look like this
 ```json
 {
-  "token": "discord_token",
+  "token": "discord_token",   
+  "general_id": "discord_id_general_channel",
   "prefix": "prefix_you_want_to_use",
-  "league_token": "league_of_legends_api_key"
+  "league_token": "league_of_legends_api_key",
+  "dog_API_url": "https://dog.ceo/api/"
 }
 ```
 
