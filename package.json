@@ -4,15 +4,15 @@
   "description": "Discord bot made with discord.js lib, also uses the league of legends api.\r ## Info\r This will be a mixed bot, mostly for league of legends related content, but will also contain custom commands\r ## Setup\r Create a config.json in the main folder and make it look like this\r ```json\r {\r   \"token\": \"discord_token\",\r   \"prefix\": \"prefix_you_want_to_use\",\r   \"league_token\": \"league_of_legends_api_key\"\r }\r ```\r after that use . Use ```npm install``` to install al the modules, than use ```node index.js``` to launch the bot.\r ## League Commands\r - getrank 'summoner name'   : gives you all the ranks of the current/previous season \r - gameinfo 'summoner name'  : gives you information about the player ingame (mode, champion, ...)",
   "dependencies": {
     "discord-leveling": "^1.0.3",
-    "discord.js": "^11.4.2",
+    "discord.js": "^11.5.1",
     "fs": "0.0.1-security",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "node-league-api": "^1.0.5",
     "node-of-legends": "^2.0.2",
     "pascal-case": "^2.0.1",
     "simple-get": "^3.0.3",
-    "sqlite3": "^4.0.8",
-    "teemojs": "^1.3.0"
+    "sqlite3": "^4.0.9",
+    "teemojs": "^1.3.3"
   },
   "main": "index.js",
   "scripts": {
