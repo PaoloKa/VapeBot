@@ -5,7 +5,9 @@ const config = require("./config.json");
 const client = new Discord.Client();
 const TeemoJS = require('teemojs');
 const sqlite3 = require('sqlite3').verbose();
-const wordReacter = require('./bot/wordReacter.js')
+const wordReacter = require('./bot/wordReacter.js');
+const levelHandler = require('./bot/levelsystem/levelhandler.js');
+const dl = require('discord-leveling');
 
 /*
 set discord clien variables
@@ -17,8 +19,8 @@ client.lolApi = TeemoJS(config.league_token);
 client.once('ready', () => {
     client.user.setPresence({
         game: { 
-            name: 'HLN comments',
-            type: 'WATCHING'
+            name: config.bot_activity,
+            type: 'DOING'
         },
         status: 'idle'
     })
@@ -27,8 +29,7 @@ client.once('ready', () => {
 });
 
 const commandFiles = fs.readdirSync('./bot/commands/');
-//const commandFiles = fs.readdirSync('./bot/commands/').filter(file => file.endsWith('.js'));
-//reading all commands and putting them int the bot
+
 for (const folder of commandFiles) {
     console.log(folder);
      const commandFolder = fs.readdirSync(`./bot/commands/${folder}/`)
@@ -38,12 +39,12 @@ for (const folder of commandFiles) {
      }
 }
 //reading the messages in discord
-client.on('message', message => {
-
+client.on('message', async message => {
     if (!message.content.startsWith(client.config.prefix) && !message.author.bot) {
            wordReacter.execute(message);
-           if(config.complain == true)
-                client.commands.get('complain').execute(message,undefined);
+           if(config.complain) 
+             client.commands.get('complain').execute(message,undefined);
+           levelHandler.addExp(message); 
         return;
     }
 

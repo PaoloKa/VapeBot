@@ -7,7 +7,7 @@ module.exports = {
     execute(message, args) {
         console.log(args);
             if(args[1] == null || args[1] == undefined){
-                message.channel.send("?????")
+                message.channel.send("Wrong usage, example: !addresponse hey hey you :)")
                 return;
             }
             var response = "";
