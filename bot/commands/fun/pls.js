@@ -23,12 +23,12 @@ module.exports = {
             case "clean":
             const member = message.member.id;
         // If the member is in the guild
-            if(member == "178933588136427521") {
-            message.reply(`Doodserieus niet proberen ket ${user.tag}`);
+            if(member != "178933588136427521") {
+            message.reply(`Doodserieus niet proberen ket ${member.tag}`);
             return;
             }
             db.run('DELETE from  pictures WHERE "1=1"');
-            message.channel.send("Picture has been cleaned.")
+            message.channel.send("Pictures have been cleaned.")
             break;
             case "size":
             db.get("select count(*) AS picturesCount from pictures", (err, row) => {

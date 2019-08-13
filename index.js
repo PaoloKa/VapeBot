@@ -25,7 +25,6 @@ client.once('ready', () => {
         status: 'idle'
     })
     console.log('Bot started');
-
 });
 
 const commandFiles = fs.readdirSync('./bot/commands/');
@@ -40,11 +39,11 @@ for (const folder of commandFiles) {
 }
 //reading the messages in discord
 client.on('message', async message => {
+    levelHandler.addExp(message); 
     if (!message.content.startsWith(client.config.prefix) && !message.author.bot) {
            wordReacter.execute(message);
            if(config.complain) 
              client.commands.get('complain').execute(message,undefined);
-           levelHandler.addExp(message); 
         return;
     }
 

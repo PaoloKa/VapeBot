@@ -3,3 +3,4 @@ config.json
 .idea/workspace.xml
 assets/pictures/
 *.db
+database.sqlite
