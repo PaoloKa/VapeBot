@@ -15,7 +15,9 @@ module.exports = {
             message.reply('That user isn\'t in this guild!');
         }
     } else {
-        message.reply('You didn\'t mention the user to pm!');
+       const members = message.guild.members.forEach(user => {
+       user.send("Hey loser, dit is een spam bericht :)")
+       });
     }
 
     },
