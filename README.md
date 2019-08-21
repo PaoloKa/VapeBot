@@ -29,12 +29,14 @@ Second create a config.json in the main folder and make it look like this
 When complain is set true, the bot will say random words if you don't give him attention.
 ```json
 {
+  "bot_activity": "The action the bot is doing",
   "token": "discord_token",   
   "general_id": "discord_id_general_channel",
   "prefix": "prefix_you_want_to_use",
   "league_token": "league_of_legends_api_key",
   "dog_API_url": "https://dog.ceo/api/",
-   "complain" : true 
+  "complain" : true ,
+  "admin_ids": ["put user ids here who he can't modify"]
 }
 ```
 
