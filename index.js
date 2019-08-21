@@ -10,9 +10,6 @@ const levelHandler = require('./bot/levelsystem/levelhandler.js');
 const dl = require('discord-leveling');
 const talkedRecently = new Set();
 
-/*
-set discord clien variables
- */
 client.commands = new Discord.Collection();
 client.config = config;
 client.lolApi = TeemoJS(config.league_token);	
