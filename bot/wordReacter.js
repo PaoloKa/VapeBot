@@ -5,7 +5,7 @@ module.exports = {
         if(message.author.bot)
             return;
             db.getResponses().forEach(function(value){
-                if(message.content.toLowerCase().includes(value.word)){
+                if(message.content.toLowerCase().includes(value.word.toLowerCase())){
                     message.channel.send(value.response);
                     return;
                 }   

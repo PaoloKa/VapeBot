@@ -29,6 +29,11 @@ module.exports = {
   
    getResponses(){
     return responses;
+  },
+
+  addResponse(reponse,reaction){
+    connection.run('INSERT INTO responses(word,response) VALUES ("'+reponse+'" , "'+reaction+'")');
+    loadResponses(); //to add the new values to the existing array
   }
 
 };
