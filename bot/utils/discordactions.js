@@ -7,6 +7,7 @@ module.exports = {
             message.reply(`Could not kick user ${user.user.username} since it's an admin.`);
             return;
         }
+        console.log("kicking");
         user.kick('Optional reason that will display in the audit logs').then(() => {
         message.reply(`Successfully kicked ${user.user.username}`);
         }).catch(err => {
@@ -16,7 +17,8 @@ module.exports = {
 
     async sendInivte(channel,user){
        return channel.createInvite().then(invite => {
-            user.send(invite.url);
+           console.log(invite.url);
+           return user.send(invite.url);
         });
     }
 }
