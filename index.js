@@ -35,6 +35,9 @@ for (const folder of commandFiles) {
         client.commands.set(command.name, command);
      }
 }
+client.on("guildMemberAdd", member =>{
+    member.setRoles([config.join_role]);
+});
 //reading the messages in discord
 client.on('message', async message => {
     if(!message.author.bot) //don't want bots to level

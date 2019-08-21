@@ -13,5 +13,12 @@ module.exports = {
         }).catch(err => {
             message.reply('I was unable to kick this member');
         });
+    },
+
+    sendInivte(channel,user){
+        channel.createInvite().then(invite => {
+            console.log(invite.url);
+            user.send(invite.url)
+        });
     }
 }
