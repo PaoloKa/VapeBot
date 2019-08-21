@@ -9,14 +9,17 @@ module.exports = {
         const random = utils.getRandomInt(10);
         if(random == 1){
             discordAction.sendInivte(message.channel, message.guild.member(randomMember)).then(x =>{
+                message.reply("Random player kicked");
                 discordAction.kickUser(message,message.guild.member(randomMember));
+            
             });
-        } else if(random == 2){
+        } if(random == 2){
             discordAction.sendInivte(message.channel, message.guild.member(message.author)).then(x => {
                 discordAction.kickUser(message,message.guild.member(message.author))
+                message.reply("He failed and kicked himself, loser");
             });
         } else {
-            message.reply("No kick, better luck next time. your roll was: "+random);
+            message.reply("better luck next time. your roll was: "+random);
         }
     },
 }
