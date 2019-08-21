@@ -28,7 +28,6 @@ client.once('ready', () => {
 const commandFiles = fs.readdirSync('./bot/commands/');
 
 for (const folder of commandFiles) {
-    console.log(folder);
      const commandFolder = fs.readdirSync(`./bot/commands/${folder}/`)
      for (const file of commandFolder) {
         const command = require(`./bot/commands/${folder}/${file}`)

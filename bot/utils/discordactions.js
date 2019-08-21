@@ -3,7 +3,6 @@ const config = require('../../config.json');
 module.exports = {
        
     kickUser(message,user){
-        console.log(user.id + " "+config.admin_ids);
         if(config.admin_ids.includes(user.id)){
             message.reply(`Could not kick user ${user.user.username} since it's an admin.`);
             return;
@@ -15,10 +14,9 @@ module.exports = {
         });
     },
 
-    sendInivte(channel,user){
-        channel.createInvite().then(invite => {
-            console.log(invite.url);
-            user.send(invite.url)
+    async sendInivte(channel,user){
+       return channel.createInvite().then(invite => {
+            user.send(invite.url);
         });
     }
 }
